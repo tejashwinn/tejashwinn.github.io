@@ -22,10 +22,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <header className="flex justify-between items-center py-4">
             <span></span>
             <nav className="space-x-4">
-              <Link href="/" className="hover:text-blue-600">Home</Link>
+              <Link href="/home" className="hover:text-blue-600">Home</Link>
+              <Link href="/blog" className="hover:text-blue-600">Blog</Link>
               <Link href="/about" className="hover:text-blue-600">About</Link>
-              <Link href="/now" className="hover:text-blue-600">Now</Link>
               <Link href="/contact" className="hover:text-blue-600">Contact</Link>
+              <Link href="/now" className="hover:text-blue-600">Now</Link>
+              
             </nav>
           </header>
           <main className="mt-6">{children}</main>

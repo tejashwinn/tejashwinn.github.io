@@ -11,8 +11,8 @@ const samplePost: BlogPost = {
   title: "My First Blog Post",
   date: "2025-08-01",
   summary: "",
-  url: "/blog/my-first-post",
-  uri: "my-first-post" ,
+  url: "/blog/first-post",
+  uri: "first-post" ,
   isActive: true
 };
 

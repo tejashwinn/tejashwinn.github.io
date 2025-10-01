@@ -1,11 +1,9 @@
-export default function Home() {
+import { redirect } from 'next/navigation'
 
-  return (
-    <>
-      <section className="text-center py-20">
-        <h2 className="text-4xl font-bold mb-4">Hi, I&lsquo;m Tejashwin U</h2>
-        <p className="text-lg text-gray-600">Software Engineer | Personal Blog</p>
-      </section>
-    </>
-  );
+export default async function Root({
+  params,
+}: {
+  params: Promise<{ id: string }>
+}) {
+  redirect('/home')
 }
