@@ -12,6 +12,9 @@ const withMDX = nextMDX({
   },
 });
 
+/**
+ * @type {import('next').NextConfig}
+ */
 // Next.js configuration
 const nextConfig = {
   // Allow MDX, JavaScript, and TypeScript files as pages
@@ -27,7 +30,6 @@ const nextConfig = {
 
   // Optional: Add other Next.js configurations
   reactStrictMode: true, // Enables React Strict Mode for better error reporting
-  swcMinify: true, // Use SWC for faster minification
 
 };
 
