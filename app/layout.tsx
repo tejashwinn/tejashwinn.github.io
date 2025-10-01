@@ -1,10 +1,10 @@
 'use client'
 
-
 import './globals.css';
 import { ReactNode, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import Link from 'next/link'
+
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -20,10 +20,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body className="bg-gray-50 text-gray-900 font-sans">
         <div ref={ref} className="container mx-auto p-6">
           <header className="flex justify-between items-center py-4">
-            <h1 className="text-2xl font-bold">My Website</h1>
+            <span></span>
             <nav className="space-x-4">
               <Link href="/" className="hover:text-blue-600">Home</Link>
-              <Link href="/blog" className="hover:text-blue-600">Blog</Link>
+              <Link href="/about" className="hover:text-blue-600">About</Link>
+              <Link href="/now" className="hover:text-blue-600">Now</Link>
               <Link href="/contact" className="hover:text-blue-600">Contact</Link>
             </nav>
           </header>

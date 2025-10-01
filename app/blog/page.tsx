@@ -1,21 +1,16 @@
-import fs from 'fs';
-import path from 'path';
 import Link from 'next/link';
-
-const blogDir = path.join(process.cwd(), 'content/blog');
+import { BLOG_POSTS } from '../data/blog';
 
 export default function BlogList() {
-  const posts = fs.readdirSync(blogDir).filter(f => f.endsWith('.mdx'));
 
   return (
     <div className="prose lg:prose-xl">
-      <h2>Blog</h2>
+      <Link href="/" className="text-2xl font-bold hover:text-blue-600">Blog</Link>
       <ul>
-        {posts.map((file) => {
-          const slug = file.replace(/\.mdx?$/, '');
+        {BLOG_POSTS.map((blogPost) => {
           return (
-            <li key={slug}>
-              <Link href={`/blog/${slug}`}>{slug}</Link>
+            <li key={blogPost.uri}>
+              <Link href={`/blog/${blogPost.uri}`}>{blogPost.title}</Link>
             </li>
           );
         })}
