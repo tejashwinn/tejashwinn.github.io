@@ -18,7 +18,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body className="bg-gray-50 text-gray-900 font-sans">
-        <div ref={ref} className="container mx-auto p-6">
+        <div ref={ref} className="max-w-3xl mx-auto px-4">
           <header className="flex justify-between items-center py-4">
             <span></span>
             <nav className="space-x-4">
@@ -27,7 +27,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               <Link href="/about" className="hover:text-blue-600">About</Link>
               <Link href="/contact" className="hover:text-blue-600">Contact</Link>
               <Link href="/now" className="hover:text-blue-600">Now</Link>
-              
             </nav>
           </header>
           <main className="mt-6">{children}</main>
