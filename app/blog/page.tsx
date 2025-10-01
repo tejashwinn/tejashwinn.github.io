@@ -2,8 +2,9 @@ import fs from 'fs';
 import path from 'path';
 import Link from 'next/link';
 
+const blogDir = path.join(process.cwd(), 'content/blog');
+
 export default function BlogList() {
-  const blogDir = path.join(process.cwd(), 'content/blog');
   const posts = fs.readdirSync(blogDir).filter(f => f.endsWith('.mdx'));
 
   return (

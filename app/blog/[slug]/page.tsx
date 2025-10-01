@@ -1,16 +1,9 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter"; // for frontmatter metadata
+import fs from 'fs';
+import path from 'path';
 import dynamic from "next/dynamic";
 
 export default async function BlogPost(props: { params: Promise<{ slug: string }> }) {
-    const params = await props.params;
-
-  const filePath = path.join(process.cwd(), "content/blog", `${params.slug}.mdx`);
-  const fileContent = fs.readFileSync(filePath, "utf-8");
-  const { content } = matter(fileContent);
-
-  // Import MDX file directly as a component
+  const params = await props.params;
   const Post = dynamic(() => import(`@/content/blog/${params.slug}.mdx`));
 
   return (
@@ -19,3 +12,15 @@ export default async function BlogPost(props: { params: Promise<{ slug: string }
     </article>
   );
 }
+
+
+export async function generateStaticParams() {
+  const postsDir = path.join(process.cwd(), 'content/blog');
+  const files = fs.readdirSync(postsDir);
+
+  return files.map((file) => {
+    const slug = file.replace(/\.mdx?$/, "");
+    return { slug };
+  });
+}
+

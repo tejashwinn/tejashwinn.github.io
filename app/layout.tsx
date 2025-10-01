@@ -4,6 +4,7 @@
 import './globals.css';
 import { ReactNode, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
+import Link from 'next/link'
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -21,8 +22,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           <header className="flex justify-between items-center py-4">
             <h1 className="text-2xl font-bold">My Website</h1>
             <nav className="space-x-4">
-              <a href="/" className="hover:text-blue-600">Home</a>
-              <a href="/blog" className="hover:text-blue-600">Blog</a>
+              <Link href="/" className="hover:text-blue-600">Home</Link>
+              <Link href="/blog" className="hover:text-blue-600">Blog</Link>
             </nav>
           </header>
           <main className="mt-6">{children}</main>
