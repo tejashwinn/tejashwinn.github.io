@@ -1,4 +1,5 @@
 import { BlogPost } from "./schema";
+import { monthAndDate } from "./util";
 
 const samplePost: BlogPost = {
   id: 1,
@@ -7,25 +8,19 @@ const samplePost: BlogPost = {
   summary: "First blog",
   url: "/blog/first-post",
   uri: "first-post",
-  isActive: true
-};
-
-const hiddenPost: BlogPost = {
-  id: 2,
-  title: "My First hidden Blog Post",
-  date: "2025-10-01",
-  summary: "Hidden blog",
-  url: "/blog/hidden-blog-post",
-  uri: "hidden-blog-post",
-  isActive: false
+  isActive: true,
+  filePath: "content/blog/first-post.mdx"
 };
 
 export const BLOG_POSTS: BlogPost[]
   = [
-    samplePost,
-    hiddenPost
+    samplePost
   ].filter(post => post.isActive)
-  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    .map(post => ({
+      ...post,
+      formattedDate: monthAndDate(post.date)
+    })
+    ).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
 
 

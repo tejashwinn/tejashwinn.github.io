@@ -5,8 +5,10 @@ export interface BlogPost {
   summary: string;
   url: string;
   uri: string;
+  filePath: string;
   isActive: boolean
   tags ?: string[];
+  formattedDate ?: string;
 }
 
 export interface Project {

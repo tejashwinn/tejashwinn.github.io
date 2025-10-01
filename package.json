@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "dockerize": "pnpm build && docker build -t blog . && docker run -p 8080:80 blog"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

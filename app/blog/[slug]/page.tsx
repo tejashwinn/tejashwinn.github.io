@@ -1,6 +1,6 @@
-import fs from 'fs';
-import path from 'path';
 import dynamic from "next/dynamic";
+import { BLOG_POSTS } from '../../data/blog';
+import { BlogPost as BlogPostData } from '../../data/schema';
 
 export default async function BlogPost(props: { params: Promise<{ slug: string }> }) {
   const params = await props.params;
@@ -15,12 +15,9 @@ export default async function BlogPost(props: { params: Promise<{ slug: string }
 
 
 export async function generateStaticParams() {
-  const postsDir = path.join(process.cwd(), 'content/blog');
-  const files = fs.readdirSync(postsDir);
-
-  return files.map((file) => {
-    const slug = file.replace(/\.mdx?$/, "");
-    return { slug };
+  return BLOG_POSTS.map((file: BlogPostData) => {
+    console.log("Generating static params for slug:", file.uri);
+    return { slug: file.uri };
   });
 }
 
